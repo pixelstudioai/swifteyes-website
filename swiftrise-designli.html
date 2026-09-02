@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SwiftRise | Born from a Passion for Events</title>
+<meta name="description" content="SwiftRise is your all-in-one event management platform—simplify planning, booth layouts, registration, and communication for unforgettable events."/>
+<meta name="author" content="SwiftRise Team"/>
+<meta name="keywords" content="event management software,event planning tool,exhibitor management,event registration platform,SwiftRise,booth layout tool,conference planning,trade show software"/>
+<meta name="robots" content="index, follow"/>
+<meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"/>
+<link rel="canonical" href="https://swiftrise.app"/>
+<meta property="og:title" content="SwiftRise | Born from a Passion for Events"/>
+<meta property="og:description" content="Streamline every aspect of event management with SwiftRise. Built for modern organizers who want to create memorable experiences."/>
+<meta property="og:url" content="https://swiftrise.app"/>
+<meta property="og:site_name" content="SwiftRise"/>
+<meta property="og:image" content="https://swiftrise.app/images/mockup_main.webp"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="SwiftRise - Event Management Platform"/>
+<meta property="og:type" content="website"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="SwiftRise | Born from a Passion for Events"/>
+<meta name="twitter:description" content="All-in-one event management platform for planning, registration, booth layouts, and attendee engagement."/>
+<meta name="twitter:image" content="https://swiftrise.app/images/mockup_main.webp"/>
+<link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="100x100"/>
+<meta name="theme-color" content="#0E1034"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+/* ============ tokens — designli-style indigo + coral ============ */
+:root{
+  --bg:#0E1034; --bg2:#12153E; --panel:#171B4A; --panel2:#1D2156;
+  --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.16);
+  --ink:#FFFFFF; --ink2:#E4E6F5; --mut:#AEB2D4; --faint:#8286AE;
+  --coral:#FF8A70; --coral-2:#FFA18C; --coral-deep:#F2705B;
+  --brand:#5B78FF; --blue:#3C5AE7;
+  --gold:#F5C15D; --gold-d:#E8A93C;
+  --ok:#5CE0A1; --bad:#6A6E96;
+  --r:22px; --rl:28px;
+  --ease:cubic-bezier(.45,0,.25,1);
+  --disp:"Nunito",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --body:"Nunito",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --shadow:0 30px 70px -32px rgba(0,0,0,.6);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+section{scroll-margin-top:86px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+::selection{background:var(--coral);color:#0E1034}
+
+h1,h2,h3,.disp{font-family:var(--disp)}
+h2.sec{font-size:clamp(30px,4.2vw,48px);font-weight:900;letter-spacing:-.015em;line-height:1.1}
+h2.sec em,.hero h1 em{font-style:normal;color:var(--coral)}
+.lead{font-size:clamp(15.5px,1.4vw,17.5px);line-height:1.68;color:var(--mut)}
+.lead b{color:#fff;font-weight:800}
+.center{text-align:center}
+.sechead{max-width:780px;margin:0 auto 54px}
+.sechead .lead{margin-top:16px}
+
+/* kicker + chips */
+.kick{display:block;font-size:12.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:1px solid var(--line2);background:rgba(255,255,255,.06);border-radius:999px;font-size:11.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--ink2)}
+.chip svg{width:14px;height:14px;flex:none}
+.chip.gold{color:var(--gold);border-color:rgba(245,193,93,.4);background:rgba(245,193,93,.09)}
+
+/* buttons — designli: coral primary w/ navy text, white outline ghost */
+.btn{display:inline-flex;align-items:center;gap:11px;padding:13px 15px 13px 26px;border-radius:999px;background:var(--coral);color:#101336;font-size:15.5px;font-weight:800;transition:background .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease);box-shadow:0 18px 40px -16px rgba(255,138,112,.55)}
+.btn:hover{background:var(--coral-2);transform:translateY(-2px)}
+.btn .arr{width:30px;height:30px;border-radius:50%;background:#101336;color:var(--coral);display:grid;place-items:center;transition:transform .3s var(--ease)}
+.btn:hover .arr{transform:translateX(3px)}
+.btn .arr svg{width:14px;height:14px}
+.btn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35);box-shadow:none;padding:13px 27px;font-weight:800}
+.btn.ghost:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.6);transform:translateY(-2px)}
+.btn.ondark{background:#fff;color:#101336;box-shadow:0 18px 44px -16px rgba(0,0,0,.5)}
+.btn.ondark .arr{background:var(--coral);color:#101336}
+.btn.ondark:hover{background:#FFEDE7}
+
+/* ============ topbar ============ */
+.topbar{background:#090B26;color:#B9BDDD;font-size:12.5px;position:relative;z-index:60}
+.topbar .wrap{display:flex;align-items:center;gap:22px;height:38px}
+.topbar a{display:inline-flex;align-items:center;gap:7px;transition:color .25s}
+.topbar a:hover{color:#fff}
+.topbar svg{width:13px;height:13px;opacity:.85}
+.topbar .right{margin-left:auto;display:flex;align-items:center;gap:22px}
+.topbar .loc{display:inline-flex;align-items:center;gap:7px;color:#8A8EB8}
+@media(max-width:760px){.topbar .hide-s{display:none}}
+
+/* ============ nav ============ */
+.nav{position:sticky;top:0;z-index:50;background:rgba(14,16,52,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+.nav.scrolled{border-bottom-color:var(--line);box-shadow:0 12px 34px -20px rgba(0,0,0,.6)}
+.nav .wrap{display:flex;align-items:center;height:70px;gap:34px}
+.logo{display:flex;align-items:center;flex:none}
+.logo .lgimg{height:30px;aspect-ratio:186/59;--lg:#D7D7D7}
+footer .logo .lgimg{height:32px}
+.mnav .logo .lgimg{height:26px}
+.nav-links{display:flex;align-items:center;gap:28px;margin-left:auto}
+.nav-links a{font-size:14.5px;font-weight:700;color:var(--mut);position:relative;padding:6px 0;transition:color .25s}
+.nav-links a:hover{color:#fff}
+.nav-links a.on{color:#fff}
+.nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2.5px;background:var(--coral);border-radius:2px;transition:right .3s var(--ease)}
+.nav-links a.on::after{right:0}
+.nav .btn{padding:10px 12px 10px 20px;font-size:14.5px;box-shadow:none}
+.nav .btn .arr{width:26px;height:26px}
+.burger{display:none;width:44px;height:44px;border-radius:14px;place-items:center;border:1px solid var(--line2);background:rgba(255,255,255,.06)}
+.burger svg{width:20px;height:20px}
+@media(max-width:1020px){
+  .nav-links,.nav .btn{display:none}
+  .burger{display:grid;margin-left:auto}
+}
+.mnav{position:fixed;inset:0;z-index:80;background:rgba(5,6,24,.6);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);opacity:0;pointer-events:none;transition:opacity .3s}
+.mnav.open{opacity:1;pointer-events:auto}
+.mnav-panel{position:absolute;top:12px;right:12px;left:12px;background:#141748;border:1px solid var(--line2);border-radius:24px;padding:22px;box-shadow:var(--shadow);transform:translateY(-14px);transition:transform .3s var(--ease)}
+.mnav.open .mnav-panel{transform:none}
+.mnav-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.mnav-links{display:flex;flex-direction:column}
+.mnav-links a{padding:14px 6px;font-size:17px;font-weight:800;border-bottom:1px solid var(--line);color:var(--ink2)}
+.mnav-links a:last-of-type{border:none}
+.mnav .btn{width:100%;justify-content:center;margin-top:12px}
+.mclose{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.09);display:grid;place-items:center}
+
+/* ============ hero — rounded inset panel (designli) ============ */
+.hero{position:relative;padding:72px 0 0;overflow:hidden;margin:10px 14px 0;border-radius:32px;background:linear-gradient(180deg,#171B54 0%,#12153E 60%,var(--bg) 100%)}
+.hero-canvas{position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(1000px 620px at 50% -16%, rgba(91,120,255,.5) 0%, rgba(91,120,255,0) 68%),
+  radial-gradient(720px 480px at 88% 4%, rgba(255,138,112,.22) 0%, rgba(255,138,112,0) 60%),
+  radial-gradient(760px 520px at 8% 10%, rgba(60,90,231,.35) 0%, rgba(60,90,231,0) 62%)}
+.hero-grid{position:absolute;inset:0;pointer-events:none;background:radial-gradient(900px 500px at 50% 112%, rgba(255,138,112,.08), transparent 60%)}
+.hero-inner{position:relative;text-align:center;max-width:940px;margin:0 auto;padding:0 24px}
+.hero h1{font-size:clamp(42px,6.2vw,78px);font-weight:900;letter-spacing:-.022em;line-height:1.04;margin:26px 0 22px;color:#fff}
+.hero h1 .ln2{display:block;color:var(--coral);padding-bottom:.06em}
+.hero .lead{max-width:660px;margin:0 auto;color:#C9CDE8}
+.hero .lead b{color:#fff;font-weight:800}
+.hero-ctas{display:flex;gap:14px;justify-content:center;margin:34px 0 20px;flex-wrap:wrap}
+.hero-trust{font-size:13.5px;color:var(--faint);font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
+.hero-trust b{color:var(--ink2);font-weight:800}
+.hero-trust .stars{color:var(--coral);letter-spacing:2px;font-size:14px}
+
+/* hero visual */
+.hero-visual{position:relative;max-width:1020px;margin:56px auto 0;padding:0 24px}
+.hv-glow{position:absolute;inset:8% 12% -4%;background:radial-gradient(60% 70% at 50% 30%,rgba(91,120,255,.5),rgba(255,138,112,.18) 60%,transparent 78%);filter:blur(56px);border-radius:40px;pointer-events:none}
+.hv-frame{position:relative;border-radius:26px 26px 0 0;overflow:hidden;border:1px solid rgba(255,255,255,.16);border-bottom:none;box-shadow:0 -30px 80px -30px rgba(0,0,0,.55);background:var(--panel)}
+.hv-frame img{width:100%;height:auto}
+.hv-chip{position:absolute;background:rgba(20,23,66,.86);border:1px solid var(--line2);border-radius:18px;padding:12px 16px;box-shadow:0 20px 46px -16px rgba(0,0,0,.65);display:flex;align-items:center;gap:11px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);animation:floaty 6s var(--ease) infinite}
+.hv-chip .ic{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;flex:none}
+.hv-chip .ic svg{width:18px;height:18px}
+.hv-chip .t b{display:block;font-size:16px;font-weight:800;letter-spacing:-.01em;color:#fff}
+.hv-chip .t span{font-size:11.5px;color:var(--mut);font-weight:600}
+.hv-chip.c1{top:9%;left:-6px;animation-delay:.7s}
+.hv-chip.c1 .ic{background:rgba(92,224,161,.16);color:var(--ok)}
+.hv-chip.c2{bottom:16%;right:-6px}
+.hv-chip.c2 .ic{background:rgba(255,138,112,.16);color:var(--coral)}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@media(max-width:760px){.hv-chip{display:none}}
+@media(max-width:600px){.hero{margin:8px 8px 0;border-radius:24px}}
+
+/* stat band — sits right under hero panel */
+.stats{position:relative;max-width:1060px;margin:0 auto;padding:56px 24px 66px}
+.stat-row{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.stat-row::before{content:"";position:absolute;top:-26px;left:4%;right:4%;border-top:2px dotted rgba(255,255,255,.16)}
+.stat{position:relative;text-align:center;padding:6px 8px}
+.stat::before{content:"";position:absolute;top:-31px;left:50%;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px rgba(255,138,112,.2)}
+.stat .num{font-family:var(--disp);font-size:clamp(30px,3.6vw,44px);font-weight:900;letter-spacing:-.02em;line-height:1;color:#fff}
+.stat .num .u{font-size:.55em;font-weight:800;color:var(--coral)}
+.stat.gold .num{color:var(--gold)}
+.stat .lbl{margin-top:9px;font-size:13px;color:var(--mut);font-weight:600;line-height:1.45}
+@media(max-width:760px){.stat-row{grid-template-columns:repeat(2,1fr);gap:26px 12px}.stat-row::before,.stat::before{display:none}}
+
+/* ============ marquee ============ */
+.mqband{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2);padding:20px 0;overflow:hidden}
+.mq{display:flex;width:max-content;animation:mq 30s linear infinite;gap:0}
+.mqband:hover .mq{animation-play-state:paused}
+.mq-item{display:inline-flex;align-items:center;gap:26px;padding:0 26px;font-family:var(--disp);font-size:14.5px;font-weight:800;letter-spacing:.22em;color:#767BA8;white-space:nowrap}
+.mq-item .star{color:var(--coral);opacity:.7;font-size:13px}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ============ capabilities (the platform) ============ */
+.features{padding:110px 0 100px;background:var(--bg)}
+.caps{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.pcard{background:var(--panel);border-radius:var(--rl);padding:34px 32px;transition:transform .35s var(--ease),background .35s var(--ease);position:relative;overflow:hidden}
+.pcard::before{content:"";position:absolute;inset:0;background:radial-gradient(420px 220px at 85% -10%,rgba(255,138,112,.1),transparent 60%);opacity:0;transition:opacity .35s var(--ease);pointer-events:none}
+.pcard:hover{transform:translateY(-6px);background:var(--panel2)}
+.pcard:hover::before{opacity:1}
+.pcard .ic{width:52px;height:52px;border-radius:16px;background:rgba(255,138,112,.14);color:var(--coral);display:grid;place-items:center;margin-bottom:20px}
+.pcard .ic svg{width:24px;height:24px}
+.pcard h3{font-size:21px;font-weight:900;letter-spacing:-.01em;margin-bottom:9px;color:#fff}
+.pcard>p{font-size:14.5px;line-height:1.65;color:var(--mut);margin-bottom:18px}
+.fchips{display:flex;flex-wrap:wrap;gap:8px}
+.fchip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);border:1px solid var(--line);color:var(--ink2);font-size:12.5px;font-weight:700;padding:7px 12px;border-radius:999px;transition:border-color .3s var(--ease),color .3s var(--ease)}
+.pcard:hover .fchip{border-color:var(--line2)}
+.fchip::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--coral);flex:none}
+@media(max-width:860px){.caps{grid-template-columns:1fr}}
+
+/* legacy fgrid kept harmless */
+.fgrid{display:none}
+
+/* ============ apps split ============ */
+.apps{padding:0 0 110px;background:var(--bg)}
+.apps-in{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center;background:radial-gradient(800px 480px at 85% 0%,rgba(91,120,255,.28),transparent 60%),var(--panel);border-radius:36px;padding:52px 60px;overflow:hidden;position:relative}
+.apps-in::before{content:"";position:absolute;inset:0;background:radial-gradient(480px 340px at 10% 112%,rgba(255,138,112,.12),transparent 60%);pointer-events:none}
+.apps-copy{position:relative;color:#fff}
+.apps-copy .kick{color:var(--coral)}
+.apps-copy h2{font-size:clamp(28px,3.4vw,40px);font-weight:900;letter-spacing:-.015em;line-height:1.1;margin-bottom:16px}
+.apps-copy .lead{color:var(--mut);margin-bottom:26px}
+.apps-list{display:grid;gap:13px;margin-bottom:34px}
+.apps-list li{list-style:none;display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--ink2);line-height:1.5;font-weight:600}
+.apps-list li svg{width:19px;height:19px;flex:none;margin-top:1px;color:var(--coral)}
+.apps-shot{position:relative}
+.apps-shot img{width:100%;max-width:380px;max-height:480px;object-fit:contain;margin:0 auto;filter:drop-shadow(0 26px 50px rgba(0,0,0,.55))}
+@media(max-width:980px){.apps-in{grid-template-columns:1fr;padding:36px 24px 40px;gap:28px}.apps-shot img{max-width:300px;max-height:380px}}
+
+/* ============ how it works ============ */
+.how{padding:110px 0;background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:step}
+.step{position:relative;background:var(--panel);border-radius:var(--r);padding:58px 24px 28px;transition:transform .35s var(--ease),background .35s var(--ease)}
+.step:hover{transform:translateY(-5px);background:var(--panel2)}
+.step .n{position:absolute;top:20px;left:24px;font-family:var(--disp);font-size:15px;font-weight:900;color:#101336;background:var(--coral);width:38px;height:38px;border-radius:50%;display:grid;place-items:center}
+.step::after{content:"";position:absolute;top:39px;right:-17px;width:18px;border-top:2px dotted rgba(255,255,255,.2)}
+.step:last-child::after{display:none}
+.step h3{font-size:17.5px;font-weight:900;letter-spacing:-.01em;margin-bottom:9px;color:#fff}
+.step p{font-size:14px;line-height:1.62;color:var(--mut)}
+@media(max-width:980px){.steps{grid-template-columns:repeat(2,1fr)}.step::after{display:none}}
+@media(max-width:600px){.steps{grid-template-columns:1fr}}
+
+/* ============ award ============ */
+.award{position:relative;padding:110px 0;background:var(--bg);color:#fff;overflow:hidden}
+.award::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(800px 480px at 15% -5%,rgba(91,120,255,.22),transparent 60%),
+  radial-gradient(640px 420px at 92% 106%,rgba(245,193,93,.1),transparent 55%)}
+.award .wrap{position:relative}
+.award-head{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;margin-bottom:56px}
+.award .chip{background:rgba(245,193,93,.08);border-color:rgba(245,193,93,.4);color:var(--gold)}
+.award h2{font-size:clamp(30px,4.2vw,48px);font-weight:900;letter-spacing:-.015em;line-height:1.08;margin-top:18px}
+.award h2 .g{color:var(--gold);background:none;-webkit-background-clip:unset;background-clip:unset}
+.award .lead{color:var(--mut)}
+.award-badge{justify-self:end;display:flex;flex-direction:column;align-items:center;gap:14px;background:var(--panel);border:1px solid var(--line);padding:26px 34px;border-radius:24px}
+.award-badge img{height:52px;width:auto;filter:brightness(1.05)}
+.award-badge span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);font-weight:700;text-align:center;line-height:1.6}
+@media(max-width:900px){.award-head{grid-template-columns:1fr}.award-badge{justify-self:start}}
+
+/* quotes carousel */
+.qwrap{position:relative;background:var(--panel);border-radius:var(--rl);padding:46px 52px 40px}
+.qmark{position:absolute;top:-26px;left:44px;width:52px;height:52px;border-radius:16px;background:var(--coral);display:grid;place-items:center;box-shadow:0 16px 34px -12px rgba(255,138,112,.6)}
+.qmark svg{width:24px;height:24px;color:#101336}
+.qslides{position:relative;min-height:150px}
+.qslide{position:absolute;inset:0;opacity:0;transform:translateY(12px);transition:opacity .55s var(--ease),transform .55s var(--ease);pointer-events:none}
+.qslide.on{opacity:1;transform:none;pointer-events:auto;position:relative}
+.qslide p{font-size:clamp(16.5px,1.8vw,20.5px);line-height:1.62;color:var(--ink2);font-weight:600}
+.qwho{display:flex;align-items:center;gap:14px;margin-top:24px}
+.qav{width:46px;height:46px;border-radius:50%;background:var(--coral);display:grid;place-items:center;font-weight:900;font-size:15px;letter-spacing:.02em;color:#101336;flex:none}
+.qwho b{display:block;font-size:15px;font-weight:800;color:#fff}
+.qwho span{font-size:13px;color:var(--faint);font-weight:600}
+.qctrl{display:flex;align-items:center;gap:18px;margin-top:30px}
+.qbars{display:flex;gap:7px;flex:1;max-width:220px}
+.qbar{flex:1;height:4px;border-radius:4px;background:rgba(255,255,255,.14);overflow:hidden;cursor:pointer}
+.qbar i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--gold),#F8D28A);border-radius:4px}
+.qcount{font-family:var(--disp);font-size:13px;font-weight:800;letter-spacing:.16em;color:var(--faint)}
+.qnav{display:flex;gap:9px;margin-left:auto}
+.qbtn{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--line2);display:grid;place-items:center;color:var(--ink2);transition:background .3s var(--ease),border-color .3s var(--ease)}
+.qbtn:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.4)}
+.qbtn svg{width:15px;height:15px}
+@media(max-width:640px){.qwrap{padding:38px 24px 32px}.qslides{min-height:260px}}
+
+/* ============ stories ============ */
+.stories{padding:110px 0;background:var(--bg)}
+.sgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.scard{position:relative;border-radius:var(--rl);overflow:hidden;background:var(--panel);transition:transform .35s var(--ease)}
+.scard:hover{transform:translateY(-6px)}
+.scard .ph{position:relative;aspect-ratio:16/10.2;overflow:hidden}
+.scard .ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.scard:hover .ph img{transform:scale(1.045)}
+.scard .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(10,12,40,.85) 100%)}
+.scard .ph .yr{position:absolute;top:18px;left:18px;background:rgba(14,16,52,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid var(--line2);color:#fff;font-size:12px;font-weight:800;letter-spacing:.08em;padding:7px 13px;border-radius:999px}
+.scard .ph h3{position:absolute;left:24px;right:24px;bottom:18px;color:#fff;font-size:clamp(20px,2.2vw,26px);font-weight:900;letter-spacing:-.01em;z-index:1}
+.scard .body{padding:24px 26px 28px}
+.scard .body p{font-size:14.5px;line-height:1.65;color:var(--mut);margin-bottom:18px}
+.mchips{display:flex;flex-wrap:wrap;gap:9px}
+.mchip{display:inline-flex;align-items:center;gap:7px;background:rgba(255,138,112,.12);color:var(--coral-2);font-size:12.5px;font-weight:800;padding:8px 13px;border-radius:999px}
+.mchip svg{width:13px;height:13px}
+@media(max-width:860px){.sgrid{grid-template-columns:1fr}}
+
+/* ============ compare ============ */
+.compare{padding:110px 0;background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tblwrap{overflow-x:auto;border-radius:var(--rl);background:var(--panel)}
+table.cmp{width:100%;border-collapse:collapse;min-width:680px}
+.cmp th,.cmp td{padding:19px 24px;text-align:left;vertical-align:top}
+.cmp thead th{font-family:var(--disp);font-size:15.5px;font-weight:900;letter-spacing:-.01em;border-bottom:1px solid var(--line);color:#fff}
+.cmp thead th.sr{color:var(--coral)}
+.cmp thead th.sr .rec{display:inline-block;margin-left:9px;font-family:var(--body);font-size:10.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;background:var(--coral);color:#101336;padding:4px 9px;border-radius:999px;vertical-align:2px}
+.cmp tbody tr{border-bottom:1px solid var(--line)}
+.cmp tbody tr:last-child{border-bottom:none}
+.cmp tbody tr:hover{background:rgba(255,255,255,.025)}
+.cmp td.cap{font-weight:800;font-size:14.5px;width:22%;color:#fff;background:none;border-radius:0;padding:19px 24px;transition:none;transform:none;overflow:visible}
+.cmp td.pcard::before{display:none}
+.cmp td .yes,.cmp td .no{display:flex;gap:11px;align-items:flex-start;font-size:14px;line-height:1.55}
+.cmp td .yes{color:var(--ink2)} .cmp td .no{color:var(--faint)}
+.cmp td .yes .i,.cmp td .no .i{flex:none;width:21px;height:21px;border-radius:50%;display:grid;place-items:center;margin-top:1px}
+.cmp td .yes .i{background:rgba(92,224,161,.15);color:var(--ok)} .cmp td .no .i{background:rgba(255,255,255,.07);color:var(--bad)}
+.cmp td svg{width:12px;height:12px}
+.cmp td.srcol{background:linear-gradient(180deg,rgba(255,138,112,.07),rgba(255,138,112,.02))}
+
+/* ============ faq ============ */
+.faq{padding:110px 0;background:var(--bg)}
+.faq-in{max-width:840px;margin:0 auto}
+.qa{border:none;border-radius:var(--r);background:var(--panel);margin-bottom:12px;overflow:hidden;transition:background .3s var(--ease)}
+.qa.open{background:var(--panel2)}
+.qa-q{width:100%;display:flex;align-items:center;gap:16px;padding:21px 24px;text-align:left;font-size:16px;font-weight:800;letter-spacing:-.005em;color:#fff}
+.qa-q .pm{margin-left:auto;flex:none;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.08);display:grid;place-items:center;transition:transform .3s var(--ease),background .3s var(--ease);color:var(--ink2)}
+.qa.open .pm{transform:rotate(45deg);background:var(--coral);color:#101336}
+.qa-q .pm svg{width:13px;height:13px}
+.qa-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.qa-a p{padding:0 24px 22px;font-size:14.5px;line-height:1.7;color:var(--mut)}
+.faq-more{text-align:center;margin-top:34px;font-size:14.5px;color:var(--mut);font-weight:600}
+.faq-more a{color:var(--coral);font-weight:800}
+
+/* ============ contact ============ */
+.contact{padding:110px 0;background:var(--bg2);border-top:1px solid var(--line)}
+.c-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px;align-items:stretch}
+.c-info{background:radial-gradient(520px 380px at 88% -10%,rgba(91,120,255,.35),transparent 60%),var(--panel);color:#fff;border-radius:var(--rl);padding:42px 38px;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.c-info::before{content:"";position:absolute;inset:0;background:radial-gradient(420px 300px at 0% 115%,rgba(255,138,112,.12),transparent 60%);pointer-events:none}
+.c-info>*{position:relative}
+.c-info h3{font-size:26px;font-weight:900;letter-spacing:-.015em;margin-bottom:10px}
+.c-info .sub{color:var(--mut);font-size:14.5px;line-height:1.6;margin-bottom:30px;font-weight:600}
+.c-rows{display:grid;gap:8px;margin-bottom:auto}
+.c-row{display:flex;gap:15px;align-items:flex-start;padding:13px 14px;border-radius:16px;transition:background .3s var(--ease)}
+a.c-row:hover{background:rgba(255,255,255,.06)}
+.c-row .ic{flex:none;width:40px;height:40px;border-radius:13px;background:rgba(255,138,112,.13);display:grid;place-items:center;color:var(--coral)}
+.c-row .ic svg{width:18px;height:18px}
+.c-row b{display:block;font-size:14.5px;font-weight:800;margin-bottom:2px}
+.c-row span{font-size:13px;color:var(--mut);line-height:1.5;font-weight:600}
+.c-soc{display:flex;gap:11px;margin-top:26px}
+.c-soc a{width:42px;height:42px;border-radius:13px;background:rgba(255,255,255,.07);border:1px solid var(--line2);display:grid;place-items:center;color:var(--ink2);transition:background .3s var(--ease),transform .3s var(--ease),color .3s var(--ease)}
+.c-soc a:hover{background:var(--coral);color:#101336;transform:translateY(-2px)}
+.c-soc svg{width:17px;height:17px}
+.c-form{background:var(--panel);border-radius:var(--rl);padding:42px 38px}
+.c-form h3{font-size:22px;font-weight:900;letter-spacing:-.01em;margin-bottom:6px;color:#fff}
+.c-form .sub{font-size:14px;color:var(--mut);margin-bottom:26px;font-weight:600}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fld{display:block;margin-bottom:14px}
+.fld span{display:block;font-size:12.5px;font-weight:800;color:var(--ink2);margin-bottom:7px}
+.fld input,.fld textarea{width:100%;border:1.5px solid var(--line2);border-radius:16px;padding:13px 16px;font:600 14.5px/1.4 var(--body);color:#fff;background:rgba(255,255,255,.04);transition:border-color .3s var(--ease),box-shadow .3s var(--ease);outline:none}
+.fld input::placeholder,.fld textarea::placeholder{color:#6B6F9A}
+.fld input:focus,.fld textarea:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(255,138,112,.18)}
+.fld textarea{min-height:110px;resize:vertical}
+.c-form .btn{width:100%;justify-content:center;margin-top:6px}
+.wa-fast{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:16px;font-size:13.5px;color:var(--mut);font-weight:600}
+.wa-fast a{display:inline-flex;align-items:center;gap:7px;color:var(--ok);font-weight:800}
+.wa-fast svg{width:16px;height:16px}
+.form-note{margin-top:14px;font-size:12px;color:var(--faint);text-align:center;line-height:1.5}
+@media(max-width:900px){.c-grid{grid-template-columns:1fr}.frow{grid-template-columns:1fr}}
+
+/* ============ cta band — coral (designli) ============ */
+.ctaband{padding:0 0 110px;background:var(--bg2)}
+.cta-in{position:relative;border-radius:36px;overflow:hidden;background:linear-gradient(120deg,#F2705B 0%,var(--coral) 55%,#FFA98F 100%);color:#101336;padding:70px 64px;display:flex;align-items:center;gap:40px;flex-wrap:wrap}
+.cta-in::before{content:"";position:absolute;inset:0;background:radial-gradient(520px 300px at 88% 8%,rgba(255,255,255,.3),transparent 55%);pointer-events:none}
+.cta-in>*{position:relative}
+.cta-in h2{font-size:clamp(28px,3.6vw,44px);font-weight:900;letter-spacing:-.015em;line-height:1.08}
+.cta-in p{margin-top:12px;font-size:16px;color:#3A1E14;font-weight:700}
+.cta-in .btn{margin-left:auto;background:#101336;color:#fff;box-shadow:0 18px 40px -14px rgba(16,19,54,.5)}
+.cta-in .btn .arr{background:var(--coral);color:#101336}
+.cta-in .btn:hover{background:#1B1F4E}
+@media(max-width:860px){.cta-in{padding:48px 30px}.cta-in .btn{margin-left:0}}
+
+/* ============ footer ============ */
+footer{background:#090B26;color:var(--mut);padding:64px 0 34px}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:44px;margin-bottom:46px}
+.f-brand p{margin-top:14px;font-size:14px;line-height:1.7;color:var(--faint);max-width:340px;font-weight:600}
+.f-award{display:inline-flex;align-items:center;gap:10px;margin-top:20px;background:rgba(245,193,93,.08);border:1px solid rgba(245,193,93,.3);color:var(--gold);font-size:12.5px;font-weight:800;padding:9px 15px;border-radius:999px}
+.f-award svg{width:15px;height:15px}
+footer h4{color:#fff;font-size:12.5px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px}
+.f-links{display:grid;gap:11px}
+.f-links a{font-size:14.5px;color:var(--faint);font-weight:600;transition:color .25s}
+.f-links a:hover{color:#fff}
+.f-bot{border-top:1px solid var(--line);padding-top:26px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--faint);font-weight:600}
+.f-bot .sp{margin-left:auto;display:flex;gap:20px}
+.f-bot a:hover{color:#fff}
+@media(max-width:860px){.f-grid{grid-template-columns:1fr;gap:34px}}
+
+/* floating pill */
+.fab{position:fixed;right:22px;bottom:22px;z-index:70;display:flex;align-items:center;gap:11px;background:var(--coral);color:#101336;padding:11px 22px 11px 13px;border-radius:999px;box-shadow:0 20px 48px -14px rgba(255,138,112,.55);font-size:14.5px;font-weight:800;opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .35s var(--ease),transform .35s var(--ease),background .3s var(--ease)}
+.fab.show{opacity:1;transform:none;pointer-events:auto}
+.fab:hover{background:var(--coral-2)}
+.fab .ic{width:34px;height:34px;border-radius:50%;background:#101336;color:var(--coral);display:grid;place-items:center}
+.fab .ic svg{width:16px;height:16px}
+.fab small{display:block;font-size:10px;font-weight:800;letter-spacing:.12em;color:#5A2B1E;text-transform:uppercase}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px)}
+.rv.in{opacity:1;transform:none;transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none}
+}
+
+</style>
+
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="srlogo" viewBox="0 0 186 59" fill="none">
+<path d="M15.1445 29.4974H0C0 13.2343 13.3271 0 29.7042 0V15.039C21.6763 15.039 15.1445 21.5254 15.1445 29.4974Z" fill="#3C5AE7"/>
+<path d="M0.584708 59V43.961C8.61259 43.961 15.1445 37.4746 15.1445 29.5026H30.2889C30.2889 45.7657 16.9618 59 0.584708 59Z" fill="#3C5AE7"/>
+<path d="M45.5756 44.7613C43.2948 44.7613 41.4142 44.0656 39.9498 42.6742C39.1649 41.9261 38.5855 41.0369 38.2115 40.0012C37.8375 38.9654 37.6268 38.05 37.5741 37.2549C37.5267 36.4598 37.5004 35.2724 37.5004 33.6822V21.2429H40.9243V33.6822C40.9243 35.0422 40.9401 36.0413 40.9717 36.669C41.0033 37.302 41.135 37.982 41.3615 38.7091C41.588 39.4362 41.9304 40.0116 42.3887 40.4353C43.2052 41.1834 44.264 41.5547 45.5704 41.5547C46.8768 41.5547 47.9356 41.1834 48.752 40.4353C49.2103 40.0168 49.5527 39.4414 49.7792 38.7091C50.0057 37.9768 50.1374 37.2967 50.169 36.669C50.2006 36.0361 50.2164 35.0422 50.2164 33.6822V21.2429H53.6404V33.6822C53.6404 35.0422 53.6562 36.0413 53.6878 36.669C53.7194 37.302 53.8511 37.982 54.0776 38.7091C54.3041 39.4362 54.6465 40.0116 55.1048 40.4353C55.9213 41.1834 56.9801 41.5547 58.2865 41.5547C59.5928 41.5547 60.6516 41.1834 61.4681 40.4353C61.9264 40.0168 62.2688 39.4414 62.4953 38.7091C62.7218 37.9768 62.8535 37.2967 62.8851 36.669C62.9167 36.0361 62.9325 35.0422 62.9325 33.6822V21.2429H66.3565V33.6822C66.3565 35.2671 66.3302 36.4598 66.2828 37.2549C66.2353 38.05 66.0246 38.9654 65.6454 40.0012C65.2714 41.0369 64.6919 41.9261 63.907 42.6742C62.4374 44.0656 60.5621 44.7613 58.2812 44.7613C55.4103 44.7613 53.2927 43.6262 51.9232 41.3612C50.5536 43.6314 48.4307 44.7613 45.5651 44.7613H45.5756Z" fill="var(--lg,#D7D7D7)"/>
+<path d="M72.3142 13.5691C72.7567 13.1506 73.2993 12.9362 73.9524 12.9362C74.6056 12.9362 75.1482 13.1454 75.5907 13.5691C76.0332 13.9928 76.2491 14.5421 76.2491 15.2221C76.2491 15.9021 76.0279 16.4514 75.5907 16.8751C75.1482 17.2988 74.6056 17.508 73.9524 17.508C73.2993 17.508 72.7514 17.2988 72.3142 16.8751C71.877 16.4566 71.6557 15.9021 71.6557 15.2221C71.6557 14.5421 71.877 13.9928 72.3142 13.5691ZM72.2405 44.4684V21.2429H75.6644V44.4684H72.2405Z" fill="var(--lg,#D7D7D7)"/>
+<path d="M89.0232 11.822C89.9661 11.822 91.225 12.0155 92.7895 12.4026L92.0047 15.5098C90.6983 15.1855 89.708 15.0233 89.0232 15.0233C87.7853 15.0233 86.8371 15.4627 86.1839 16.3363C85.694 17.0163 85.4517 18.6536 85.4517 21.2429H91.3251V24.256H85.4517V44.4684H82.0277V21.3423C82.0277 20.113 82.0435 19.1976 82.0751 18.5961C82.1068 17.9997 82.2279 17.3092 82.4439 16.5298C82.6546 15.7504 82.9759 15.0704 83.3973 14.4898C84.7353 12.7112 86.6106 11.8167 89.0232 11.8167V11.822Z" fill="var(--lg,#D7D7D7)"/>
+<path d="M100.275 36.2087C100.275 37.6681 100.306 38.6568 100.375 39.1694C100.438 39.6873 100.633 40.1581 100.96 40.5766C101.513 41.2252 102.282 41.5495 103.256 41.5495C104.231 41.5495 105.263 41.2409 106.438 40.6236L107.908 43.4902C106.275 44.3324 104.726 44.7509 103.262 44.7509C101.076 44.7509 99.3952 44.0081 98.2205 42.5172C97.5989 41.7378 97.2196 40.9113 97.0721 40.0378C96.9246 39.1642 96.8509 37.8826 96.8509 36.1982V15.7557H100.275V21.2482H106.143V24.2612H100.275V36.2139V36.2087Z" fill="var(--lg,#D7D7D7)"/>
+<path d="M130.506 11.6075C130.943 11.189 131.491 10.9746 132.144 10.9746C132.797 10.9746 133.345 11.1838 133.782 11.6075C134.225 12.0312 134.441 12.5805 134.441 13.2605C134.441 13.9405 134.22 14.4898 133.782 14.9135C133.34 15.3372 132.797 15.5464 132.144 15.5464C131.491 15.5464 130.943 15.3372 130.506 14.9135C130.063 14.495 129.847 13.9405 129.847 13.2605C129.847 12.5805 130.069 12.0312 130.506 11.6075ZM130.432 42.5068V19.2813H133.856V42.5068H130.432Z" fill="#3C5AE7"/>
+<path d="M153.921 20.5943L152.646 23.5602C150.723 22.6553 148.764 22.2002 146.778 22.2002C145.603 22.2002 144.623 22.4251 143.844 22.8802C142.895 23.4295 142.427 24.2403 142.427 25.3074C142.427 26.249 142.832 27.0388 143.649 27.6875C144.333 28.2053 145.587 28.6761 147.415 29.0946C149.569 29.5811 151.15 30.1826 152.161 30.8941C154.084 32.2541 155.048 34.0222 155.048 36.1878C155.048 38.3534 154.168 40.0116 152.409 41.2409C150.939 42.2766 149.064 42.7945 146.783 42.7945C143.944 42.7945 141.32 42.2295 138.908 41.0944L140.277 38.1808C142.332 39.1224 144.502 39.5931 146.783 39.5931C148.316 39.5931 149.506 39.2845 150.354 38.6673C151.202 38.0552 151.629 37.2287 151.629 36.1878C151.629 35.1468 151.171 34.2471 150.26 33.5671C149.512 33.0178 148.221 32.547 146.393 32.1547C144.239 31.6996 142.643 31.0719 141.594 30.2611C139.866 28.9324 139.003 27.2795 139.003 25.3074C139.003 23.3353 139.882 21.5986 141.642 20.4007C143.011 19.4644 144.723 18.9936 146.778 18.9936C149.222 18.9936 151.603 19.5272 153.921 20.5943Z" fill="#3C5AE7"/>
+<path d="M163.313 37.5531C164.324 38.9131 165.952 39.5931 168.206 39.5931C170.461 39.5931 172.378 39.1224 174.175 38.1808L175.592 41.0944C173.342 42.2295 170.877 42.7945 168.206 42.7945C164.782 42.7945 162.238 41.696 160.574 39.4938C159.989 38.7143 159.552 37.7989 159.278 36.7475C158.999 35.6961 158.835 34.8016 158.788 34.0745C158.74 33.3474 158.714 32.2855 158.714 30.8941C158.714 29.3405 158.74 28.1949 158.788 27.4678C158.835 26.7407 158.988 25.9142 159.251 24.9883C159.515 24.0624 159.92 23.215 160.473 22.4356C162.101 20.134 164.761 18.9832 168.449 18.9832C170.861 18.9832 172.821 19.5847 174.322 20.7826C175.887 22.0799 176.703 23.7172 176.772 25.6892C176.772 27.6979 175.955 29.2829 174.322 30.4494C173.669 30.9045 172.926 31.2445 172.094 31.4695C171.262 31.6944 170.514 31.8252 169.845 31.8565C169.176 31.8879 168.122 31.9036 166.689 31.9036H162.185C162.185 34.6603 162.559 36.5383 163.313 37.5374V37.5531ZM173.342 25.6997C173.274 24.664 172.852 23.8375 172.068 23.2202C171.219 22.5402 170.013 22.2002 168.449 22.2002C166.163 22.2002 164.487 22.8331 163.408 24.0938C162.591 25.0354 162.185 26.636 162.185 28.9063H166.689C168.449 28.9063 169.681 28.8644 170.382 28.786C171.083 28.7075 171.678 28.4878 172.168 28.1321C172.953 27.5515 173.342 26.7407 173.342 25.6997Z" fill="#3C5AE7"/>
+<path d="M122.594 19.2029C123.8 19.2029 124.906 19.3807 125.923 19.7364L124.896 22.7965C124.179 22.5402 123.41 22.4094 122.599 22.4094C120.676 22.4094 119.223 22.9901 118.243 24.1566C117.885 24.5803 117.616 25.1348 117.437 25.8305C117.258 26.5262 117.152 27.1748 117.121 27.7712C117.089 28.3727 117.073 29.3195 117.073 30.6116V42.7108H113.649V30.6116C113.649 28.9952 113.676 27.8078 113.723 27.065C113.771 26.3222 113.944 25.4852 114.234 24.5646C114.529 23.6387 114.987 22.8227 115.604 22.1113C117.268 20.1653 119.597 19.1976 122.599 19.1976L122.594 19.2029Z" fill="#3C5AE7"/>
+<path d="M174.491 11.2413L172.357 17.0163C172.953 17.1575 173.5 17.3406 174.022 17.5603L176.166 11.7749C175.628 11.5657 175.07 11.3826 174.491 11.2413Z" fill="#3C5AE7"/>
+<path d="M170.819 16.76L171.088 10.6659C170.529 10.6188 169.934 10.5979 169.339 10.5875L169.081 16.6711H169.091C169.697 16.6711 170.266 16.7077 170.814 16.7652L170.819 16.76Z" fill="#3C5AE7"/>
+<path d="M179.426 13.4697L175.513 18.3397C176.002 18.6641 176.445 19.0198 176.851 19.4487L180.801 14.5316C180.369 14.1393 179.906 13.7888 179.426 13.4697Z" fill="#3C5AE7"/>
+<path d="M185.263 21.8131L178.984 23.6073C179.126 24.1984 179.242 24.7738 179.321 25.3178L185.658 23.5027C185.563 22.9587 185.437 22.4042 185.263 21.8131Z" fill="#3C5AE7"/>
+<path d="M183.166 17.1419L177.841 20.6571C178.131 21.1174 178.389 21.6509 178.599 22.2525L184.062 18.6327C183.804 18.1096 183.504 17.6126 183.166 17.1419Z" fill="#3C5AE7"/>
+</symbol></defs></svg>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://swiftrise.app/#organization","name":"SwiftRise","legalName":"Verto Technologies","url":"https://swiftrise.app","logo":{"@type":"ImageObject","url":"https://swiftrise.app/images/srLogo.svg","width":512,"height":512},"description":"SwiftRise is an all-in-one event management platform for organizers, covering planning, booth layouts, registration, ticketing, check-in, and attendee networking.","foundingDate":"2023","email":"info@swiftrise.app","telephone":"+966567220298","address":{"@type":"PostalAddress","streetAddress":"Salah Ad Din Al Ayyubi Rd, King Abdulaziz, Unit No 69","addressLocality":"Riyadh","addressCountry":"SA"},"contactPoint":{"@type":"ContactPoint","telephone":"+966567220298","email":"info@swiftrise.app","contactType":"sales","areaServed":"SA","availableLanguage":["en","ar"]},"sameAs":["https://www.linkedin.com/company/verto-technologies-sa/","https://www.instagram.com/vertotechnologies/","https://vertotechnologies.com/"],"award":"Gold — 15th Global Eventex Awards"},{"@type":"WebSite","@id":"https://swiftrise.app/#website","url":"https://swiftrise.app","name":"SwiftRise","description":"All-in-one event management platform for planning, registration, booth layouts, and attendee engagement.","inLanguage":"en","publisher":{"@id":"https://swiftrise.app/#organization"}},{"@type":"ProfessionalService","@id":"https://swiftrise.app/#localbusiness","name":"SwiftRise","image":"https://swiftrise.app/images/srLogo.svg","url":"https://swiftrise.app","telephone":"+966567220298","email":"info@swiftrise.app","priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"Salah Ad Din Al Ayyubi Rd, King Abdulaziz, Unit No 69","addressLocality":"Riyadh","addressCountry":"SA"},"areaServed":{"@type":"Country","name":"Saudi Arabia"},"parentOrganization":{"@id":"https://swiftrise.app/#organization"}},{"@type":"SoftwareApplication","@id":"https://swiftrise.app/#software","name":"SwiftRise","applicationCategory":"BusinessApplication","applicationSubCategory":"Event Management Software","operatingSystem":"Web, iOS, Android","url":"https://swiftrise.app","description":"SwiftRise is an all-in-one event management platform that streamlines planning, booth layouts, registration, ticketing, on-site check-in, live agendas, polls, and attendee networking from a single dashboard.","featureList":["Detailed real-time analytics dashboard","Customizable landing pages","Registration and ticketing","QR code-based on-site check-in","Interactive booth layouts and floor plans","Live streaming","Polls and surveys","Multi-platform mobile applications"],"publisher":{"@id":"https://swiftrise.app/#organization"},"offers":{"@type":"Offer","availability":"https://schema.org/InStock","priceCurrency":"USD","price":"0","description":"Request a demo for custom event management pricing."}},{"@type":"Service","@id":"https://swiftrise.app/#service","serviceType":"Event Management Platform","name":"SwiftRise Event Management","provider":{"@id":"https://swiftrise.app/#organization"},"areaServed":{"@type":"Country","name":"Saudi Arabia"},"description":"End-to-end event management services including event setup, exhibitor and attendee management, booth layout design, registration, and ticketing.","hasOfferCatalog":{"@type":"OfferCatalog","name":"SwiftRise Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Event Setup & Planning","description":"Configure event details, branding, and goals with a guided setup workflow."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Registration & Ticketing","description":"Open registrations, manage secure ticket sales, and issue digital tickets."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Booth Layouts & Floor Plans","description":"Design interactive booth layouts and optimize attendee flow with drag-and-drop tools."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"On-Site Check-In & Badging","description":"Run fast QR-based check-ins, live attendance tracking, and on-site badge printing."}}]}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is SwiftRise?","acceptedAnswer":{"@type":"Answer","text":"SwiftRise is an all-in-one event management platform built for organizers. It brings event planning, booth layouts, registration, ticketing, on-site check-in, live agendas, and attendee networking into a single dashboard. Created by Verto Technologies in Riyadh, SwiftRise helps teams run conferences, exhibitions, and corporate events from one connected system."}},{"@type":"Question","name":"How does SwiftRise work?","acceptedAnswer":{"@type":"Answer","text":"SwiftRise works in four steps: set up your event details and branding, manage exhibitors and attendees with invitations and RSVPs, design booth layouts on an interactive floor plan, then open registration and ticketing. On event day, attendees check in via QR codes while organizers track live attendance from a real-time dashboard."}},{"@type":"Question","name":"Who is SwiftRise for?","acceptedAnswer":{"@type":"Answer","text":"SwiftRise is designed for event organizers, exhibition managers, conference planners, and corporate teams who coordinate registration, exhibitors, and attendees at scale. It suits trade shows, conferences, gala dinners, and internal company events, and is trusted by organizations across Saudi Arabia, including ZATCA, Hewar Group, and SAMI."}},{"@type":"Question","name":"What features does SwiftRise offer?","acceptedAnswer":{"@type":"Answer","text":"SwiftRise offers a real-time analytics dashboard, customizable landing pages, registration and ticketing, QR-based on-site check-in, interactive booth layouts, live streaming, polls and surveys, and multi-platform mobile apps. It also supports multilingual Arabic and English content and Saudi-based data hosting for cybersecurity compliance."}},{"@type":"Question","name":"Does SwiftRise support on-site check-in and badge printing?","acceptedAnswer":{"@type":"Answer","text":"Yes. SwiftRise supports fast QR code-based check-in across multiple entry gates, with real-time attendance tracking and professional on-site badge printing. At the ZATCA Conference 2024, SwiftRise achieved an average check-in time under 10 seconds and 100% registration accuracy across four gates."}},{"@type":"Question","name":"Is SwiftRise available on mobile?","acceptedAnswer":{"@type":"Answer","text":"Yes. SwiftRise includes multi-platform mobile applications for iOS and Android, letting attendees register, view interactive agendas, receive notifications, and check in by scanning their QR codes from their phones. Organizers can also monitor live event data on the go from the SwiftRise dashboard."}},{"@type":"Question","name":"How do I get started or request a demo?","acceptedAnswer":{"@type":"Answer","text":"To get started with SwiftRise, contact the team at info@swiftrise.app or call +966 56 722 0298 to request a demo. You can also submit an inquiry through the contact form on swiftrise.app, and a SwiftRise specialist will follow up to tailor the platform to your event."}}]}</script>
+
+<!-- ============ topbar ============ -->
+<div class="topbar">
+  <div class="wrap">
+    <a href="tel:+966567220298"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+966 56 722 0298</a>
+    <a href="mailto:info@swiftrise.app" class="hide-s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>info@swiftrise.app</a>
+    <div class="right">
+      <a href="https://wa.me/966567220298" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.3 1.27.49 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35zM12.04 21.5a9.4 9.4 0 0 1-4.8-1.32l-.35-.2-3.57.93.95-3.48-.22-.36a9.42 9.42 0 1 1 8 4.43zM12.05 1a11 11 0 0 0-9.53 16.5L1 23l5.63-1.48A11 11 0 1 0 12.05 1z"/></svg>WhatsApp</a>
+      <span class="loc hide-s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Riyadh, Saudi Arabia</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ nav ============ -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" data-go="top" aria-label="SwiftRise home">
+      <svg class="lgimg" viewBox="0 0 186 59" role="img" aria-label="SwiftRise"><use href="#srlogo"/></svg>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#features" data-go="features">Platform</a>
+      <a href="#how" data-go="how">How it works</a>
+      <a href="#award" data-go="award">Award</a>
+      <a href="#stories" data-go="stories">Success stories</a>
+      <a href="#faq" data-go="faq">FAQ</a>
+      <a href="#contact" data-go="contact">Contact</a>
+    </nav>
+    <a class="btn" href="#contact" data-go="contact">Book a demo <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+
+<!-- mobile menu -->
+<div class="mnav" id="mnav" aria-hidden="true">
+  <div class="mnav-panel">
+    <div class="mnav-head">
+      <span class="logo"><svg class="lgimg" viewBox="0 0 186 59" role="img" aria-label="SwiftRise"><use href="#srlogo"/></svg></span>
+      <button class="mclose" id="mclose" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" style="width:16px;height:16px"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <nav class="mnav-links" aria-label="Mobile">
+      <a href="#features" data-go="features">Platform</a>
+      <a href="#how" data-go="how">How it works</a>
+      <a href="#award" data-go="award">Award</a>
+      <a href="#stories" data-go="stories">Success stories</a>
+      <a href="#faq" data-go="faq">FAQ</a>
+      <a href="#contact" data-go="contact">Contact</a>
+    </nav>
+    <a class="btn" href="#contact" data-go="contact">Book a demo <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+  </div>
+</div>
+
+<!-- ============ hero ============ -->
+<section class="hero" id="top">
+  <div class="hero-canvas"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="rv chips">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="#3C5AE7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>All-in-one event platform</span><span class="chip gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21 1.18.54 2.03 2.03 2.03 3.79M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>Eventex Gold Winner</span>
+    </div>
+    <h1 class="rv" style="--d:.08s">Born from a passion<span class="ln2">for events.</span></h1>
+    <p class="lead rv" style="--d:.16s">SwiftRise brings planning, booth layouts, registration, ticketing, check-in and attendee networking into one platform — with <b>check-in under 10 seconds</b> and <b>100% registration accuracy</b> on event day.</p>
+    <div class="hero-ctas rv" style="--d:.24s">
+      <a class="btn" href="#contact" data-go="contact">Book a demo <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="btn ghost" href="#stories" data-go="stories">See success stories</a>
+    </div>
+    <p class="hero-trust rv" style="--d:.3s"><span class="stars">★★★★★</span> <b>Eventex Gold winner</b> · Trusted by <b>ZATCA</b>, <b>Hewar Group</b> &amp; <b>SAMI</b></p>
+  </div>
+
+  <div class="hero-visual rv" style="--d:.2s">
+    <div class="hv-glow"></div>
+    <div class="hv-frame">
+      <img src="images/features_hi.webp" width="2932" height="2624" alt="SwiftRise real-time event dashboard on a tablet — attendance, venue analytics and session insights" fetchpriority="high"/>
+    </div>
+    <div class="hv-chip c1"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="t"><b id="chipCount">4,781</b><span>attendees registered</span></span></div>
+    <div class="hv-chip c2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span><span class="t"><b>&lt;10 seconds</b><span>per check-in</span></span></div>
+  </div>
+
+  <div class="stats">
+    <div class="stat-row">
+      <div class="stat rv"><div class="num"><span class="u">&lt;</span><span data-count="10">0</span><span class="u">s</span></div><div class="lbl">average check-in at<br/>ZATCA Conference 2024</div></div>
+      <div class="stat rv" style="--d:.08s"><div class="num"><span data-count="100">0</span><span class="u">%</span></div><div class="lbl">registration accuracy<br/>across event day</div></div>
+      <div class="stat rv" style="--d:.16s"><div class="num"><span data-count="4">0</span></div><div class="lbl">entry gates running<br/>in parallel</div></div>
+      <div class="stat gold rv" style="--d:.24s"><div class="num">Gold</div><div class="lbl">15th Global Eventex Awards —<br/>on the very first entry</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ marquee ============ -->
+<div class="mqband" aria-hidden="true">
+  <div class="mq">
+    <span class="mq-item">ZATCA CONFERENCE <span class="star">✦</span></span><span class="mq-item">HEWAR GROUP <span class="star">✦</span></span><span class="mq-item">SAMI <span class="star">✦</span></span><span class="mq-item">GLOBAL EVENTEX · GOLD <span class="star">✦</span></span><span class="mq-item">VERTO TECHNOLOGIES <span class="star">✦</span></span><span class="mq-item">RIYADH · KSA <span class="star">✦</span></span>
+    <span class="mq-item">ZATCA CONFERENCE <span class="star">✦</span></span><span class="mq-item">HEWAR GROUP <span class="star">✦</span></span><span class="mq-item">SAMI <span class="star">✦</span></span><span class="mq-item">GLOBAL EVENTEX · GOLD <span class="star">✦</span></span><span class="mq-item">VERTO TECHNOLOGIES <span class="star">✦</span></span><span class="mq-item">RIYADH · KSA <span class="star">✦</span></span>
+  </div>
+</div>
+
+<!-- ============ features ============ -->
+<section class="features" id="features">
+  <div class="wrap">
+    <div class="sechead center rv">
+      <span class="kick">The platform</span>
+      <h2 class="sec">Everything your event needs. <em>And then some.</em></h2>
+      <p class="lead">SwiftRise isn't six features — it's a full operating system for events. Eight suites, one dashboard: every module below ships inside the platform today.</p>
+    </div>
+    <div class="caps">
+      <div class="pcard rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg></span><h3>Registration &amp; ticketing.</h3><p>Build any registration flow with drag-and-drop forms, tiered passes and secure payments — no developer needed.</p><div class="fchips"><span class="fchip">Custom form builder</span><span class="fchip">Pass tiers &amp; add-ons</span><span class="fchip">Promo codes &amp; discounts</span><span class="fchip">Multi-currency payments</span><span class="fchip">OTP-verified sign-ups</span></div></div>
+      <div class="pcard rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM21 14v.01M14 21v.01M17.5 17.5h3.5v3.5h-3.5z"/></svg></span><h3>Badging &amp; access control.</h3><p>Design badges in the browser and print them on site in seconds — with smart credentials at every gate.</p><div class="fchips"><span class="fchip">Badge design studio</span><span class="fchip">On-site PVC printing</span><span class="fchip">QR + RFID / NFC</span><span class="fchip">Self-serve kiosks</span><span class="fchip">Multi-gate check-in</span></div></div>
+      <div class="pcard rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.5A2.5 2.5 0 0 1 4.5 6h2L8 4h8l1.5 2h2A2.5 2.5 0 0 1 22 8.5V17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8.5z"/><circle cx="12" cy="12" r="3.5"/></svg></span><h3>Smart venue intelligence.</h3><p>Know how your venue is breathing — AI sensors turn footfall into live, actionable insight.</p><div class="fchips"><span class="fchip">AI thermal cameras + LiDAR</span><span class="fchip">Face-detection check-in</span><span class="fchip">Live occupancy counts</span><span class="fchip">People-flow heatmaps</span><span class="fchip">Zone monitoring</span></div></div>
+      <div class="pcard rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16M2 13h20"/></svg></span><h3>Exhibitor &amp; sponsor suite.</h3><p>Give every exhibitor a portal of their own — teams, leads and floor space managed without a single spreadsheet.</p><div class="fchips"><span class="fchip">Exhibitor portal &amp; teams</span><span class="fchip">Lead capture &amp; scanning</span><span class="fchip">Interactive floor plans</span><span class="fchip">Sponsor tiers</span><span class="fchip">On-site support requests</span></div></div>
+      <div class="pcard rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><h3>Networking &amp; matchmaking.</h3><p>Turn attendees into connections — scheduled 1:1 meetings, chat and a community that outlives the event.</p><div class="fchips"><span class="fchip">1:1 meeting scheduler</span><span class="fchip">Availability slots</span><span class="fchip">In-app chat</span><span class="fchip">Community &amp; follows</span><span class="fchip">Smart people tags</span></div></div>
+      <div class="pcard rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10v1a7 7 0 0 0 14 0v-1M12 18v4M8 22h8"/></svg></span><h3>Sessions &amp; engagement.</h3><p>Run multi-day agendas where every seat has a voice — from live questions to certificates on the way out.</p><div class="fchips"><span class="fchip">Multi-day agendas</span><span class="fchip">Live Q&amp;A &amp; polls</span><span class="fchip">Surveys</span><span class="fchip">Table &amp; seating plans</span><span class="fchip">Attendance certificates</span></div></div>
+      <div class="pcard rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4 20-7z"/><path d="M22 2 11 13"/></svg></span><h3>Comms &amp; content.</h3><p>Reach every attendee on the channel they actually read — automatically, in Arabic and English.</p><div class="fchips"><span class="fchip">Email template studio</span><span class="fchip">WhatsApp automation</span><span class="fchip">Push notifications</span><span class="fchip">Event news &amp; galleries</span><span class="fchip">Full AR / EN content</span></div></div>
+      <div class="pcard rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M7 13l3-3 4 4 5-6"/></svg></span><h3>Analytics &amp; operations.</h3><p>See everything, prove everything — live numbers during the event and board-ready reports after it.</p><div class="fchips"><span class="fchip">Real-time dashboard</span><span class="fchip">Custom report builder</span><span class="fchip">Ops team tracking</span><span class="fchip">Support desk</span><span class="fchip">Full audit history</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ apps split ============ -->
+<section class="apps">
+  <div class="wrap">
+    <div class="apps-in rv">
+      <div class="apps-copy">
+        <span class="kick">In every pocket</span>
+        <h2>Your event, in every attendee's hand.</h2>
+        <p class="lead">The SwiftRise companion apps put the whole event in your attendees' pockets — and give organizers live control on the go.</p>
+        <ul class="apps-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Personal agenda with session reminders and live updates</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>QR badge for fast, contactless check-in at every gate</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Exhibitor directory, interactive floorplan and networking</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Push announcements, live polls and instant Q&amp;A</li>
+        </ul>
+        <a class="btn ondark" href="#contact" data-go="contact">See it live <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      </div>
+      <div class="apps-shot"><img src="images/mockup_main.webp" width="1178" height="1502" alt="SwiftRise mobile app — attendee home screen with sessions, floorplan, badge and live sessions" loading="lazy"/></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ how it works ============ -->
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="sechead center rv">
+      <span class="kick">How it works</span>
+      <h2 class="sec">Fully digital, <em>in four steps.</em></h2>
+      <p class="lead">Get your event up and running seamlessly — a fully digitized event with as little effort as possible.</p>
+    </div>
+    <div class="steps">
+      <div class="step rv"><span class="n">01</span><h3>Set up your event</h3><p>Kickstart with ease. Enter details like name, date and location, and customize the setup to match your brand and goals.</p></div>
+      <div class="step rv" style="--d:.08s"><span class="n">02</span><h3>Manage exhibitors &amp; attendees</h3><p>Add exhibitors and attendees, send invitations, gather RSVPs and keep everyone informed with real-time updates.</p></div>
+      <div class="step rv" style="--d:.16s"><span class="n">03</span><h3>Design booth layouts</h3><p>Drag and drop booths on an interactive map. Optimize flow and visibility so each exhibitor has a prime spot to shine.</p></div>
+      <div class="step rv" style="--d:.24s"><span class="n">04</span><h3>Open registration &amp; ticketing</h3><p>Open registrations and securely manage ticket sales. Track attendee numbers live and send digital tickets with ease.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ award ============ -->
+<section class="award" id="award">
+  <div class="wrap">
+    <div class="award-head">
+      <div class="rv">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21 1.18.54 2.03 2.03 2.03 3.79M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>An award-winning solution</span>
+        <h2><span class="g">Gold,</span> on our very first entry.</h2>
+        <p class="lead" style="margin-top:16px">SwiftRise won Gold at the 15th edition of the Global Eventex Awards — judged by an independent international jury of event-industry leaders. Here's what the judges said.</p>
+      </div>
+      <div class="award-badge rv" style="--d:.12s">
+        <img src="images/eventex.webp" width="395" height="132" alt="Eventex Awards badge" loading="lazy"/>
+        <span>Global Eventex Awards<br/>Gold Winner · 15th edition</span>
+      </div>
+    </div>
+
+    <div class="qwrap rv">
+      <span class="qmark"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.6 5C6 7.2 4 10.2 4 13.9 4 17 5.9 19 8.4 19c2.2 0 3.9-1.7 3.9-3.9 0-2.1-1.5-3.6-3.5-3.6-.4 0-.9.1-1 .1.3-1.9 2-4 3.9-5.2L9.6 5zm9.5 0C15.5 7.2 13.5 10.2 13.5 13.9c0 3.1 1.9 5.1 4.4 5.1 2.2 0 3.9-1.7 3.9-3.9 0-2.1-1.5-3.6-3.5-3.6-.4 0-.9.1-1 .1.3-1.9 2-4 3.9-5.2L19.1 5z"/></svg></span>
+      <div class="qslides" id="qslides">
+        <div class="qslide on">
+          <p>“This is easily one of the most polished and complete registration solutions I've seen. SwiftRise nailed the balance of efficiency, personalization, and user experience. From industrial-grade kiosks to 24-second PVC badge printing (with encoded chips), everything runs fast, secure, and seamless. Printing thousands of badges on-site without chaos? That's a win.”</p>
+          <div class="qwho"><span class="qav">PW</span><span><b>Przemyslaw Witkowski</b><span>Creative Director, Plej sp. z o.o.</span></span></div>
+        </div>
+        <div class="qslide">
+          <p>“I like the addition of NFC technology and the self serve kiosks are some of the smartest I've seen. I also was really interested in the mesh network of AI-powered thermal cameras and LiDAR, which stands out amongst the other entries.”</p>
+          <div class="qwho"><span class="qav">AC</span><span><b>Abi Cannons</b><span>Senior Strategic Account Manager, Grip</span></span></div>
+        </div>
+        <div class="qslide">
+          <p>“It's a funny thing that's undersold here, but I love that they built the tracking tech into visually interesting decor.”</p>
+          <div class="qwho"><span class="qav">BK</span><span><b>Brandt Krueger</b><span>Senior Production Manager, EideCom</span></span></div>
+        </div>
+        <div class="qslide">
+          <p>“A solid solution built for a specific event. It seems the goal with this isn't so much to stand out as it is to solve the event's challenge — a task it appears to have accomplished quite well.”</p>
+          <div class="qwho"><span class="qav">MS</span><span><b>Michael Shapiro</b><span>Executive Editor, Northstar Meetings Group</span></span></div>
+        </div>
+      </div>
+      <div class="qctrl">
+        <div class="qbars" id="qbars" role="tablist" aria-label="Judge quotes">
+          <span class="qbar" role="tab" aria-label="Quote 1"><i></i></span>
+          <span class="qbar" role="tab" aria-label="Quote 2"><i></i></span>
+          <span class="qbar" role="tab" aria-label="Quote 3"><i></i></span>
+          <span class="qbar" role="tab" aria-label="Quote 4"><i></i></span>
+        </div>
+        <span class="qcount" id="qcount">01 / 04</span>
+        <div class="qnav">
+          <button class="qbtn" id="qprev" aria-label="Previous quote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button>
+          <button class="qbtn" id="qnext" aria-label="Next quote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ stories ============ -->
+<section class="stories" id="stories">
+  <div class="wrap">
+    <div class="sechead center rv">
+      <span class="kick">Success stories</span>
+      <h2 class="sec">Proven where it matters — <em>on event day.</em></h2>
+      <p class="lead">Flagship events across Saudi Arabia run on SwiftRise, from national conferences to corporate gatherings.</p>
+    </div>
+    <div class="sgrid">
+      <article class="scard rv">
+        <div class="ph"><span class="yr">2024</span><img src="images/zatca_1.webp" width="1050" height="700" alt="ZATCA Conference 2024 — main hall during the opening" loading="lazy"/><h3>ZATCA Conference 2024</h3></div>
+        <div class="body">
+          <p>Saudi Arabia's Zakat, Tax and Customs Authority ran its flagship conference on SwiftRise — from registration and ticketing to on-site badge printing across four parallel entry gates.</p>
+          <div class="mchips">
+            <span class="mchip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>&lt;10s average check-in</span>
+            <span class="mchip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>100% registration accuracy</span>
+            <span class="mchip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V8l8-5 8 5v13M9 21v-6h6v6"/></svg>4 gates in parallel</span>
+          </div>
+        </div>
+      </article>
+      <article class="scard rv" style="--d:.1s">
+        <div class="ph"><span class="yr">2025</span><img src="images/success_2.webp" width="682" height="682" alt="Hewar Day 2025 — team photo at the gala" loading="lazy"/><h3>Hewar Day 2025</h3></div>
+        <div class="body">
+          <p>Hewar Group's annual gathering ran end-to-end on SwiftRise — registration, live agenda and attendee engagement brought together in one branded experience.</p>
+          <div class="mchips">
+            <span class="mchip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>End-to-end digital</span>
+            <span class="mchip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Live agenda &amp; sessions</span>
+            <span class="mchip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 15 8.5 22 9.3 17 14l1.2 7L12 17.8 5.8 21 7 14 2 9.3 9 8.5 12 2z"/></svg>Branded experience</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ compare ============ -->
+<section class="compare" id="compare">
+  <div class="wrap">
+    <div class="sechead center rv">
+      <span class="kick">Why SwiftRise</span>
+      <h2 class="sec">SwiftRise vs. <em>doing it the hard way.</em></h2>
+      <p class="lead">See how the all-in-one platform compares to managing events with manual, disconnected tools.</p>
+    </div>
+    <div class="tblwrap rv">
+      <table class="cmp">
+        <thead><tr><th>Capability</th><th class="sr">SwiftRise <span class="rec">Recommended</span></th><th>Traditional tools</th></tr></thead>
+        <tbody>
+          <tr><td class="cap">Registration &amp; ticketing</td><td class="srcol"><span class="yes"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Online registration, secure ticketing and digital tickets in one platform</span></td><td><span class="no"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Separate forms, spreadsheets and third-party ticketing tools</span></td></tr>
+          <tr><td class="cap">On-site check-in</td><td class="srcol"><span class="yes"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>QR code check-in under 10 seconds with multi-gate support</span></td><td><span class="no"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Manual lists and printed sheets that create entry bottlenecks</span></td></tr>
+          <tr><td class="cap">Booth layouts</td><td class="srcol"><span class="yes"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Drag-and-drop interactive floor plans</span></td><td><span class="no"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Static diagrams edited by hand</span></td></tr>
+          <tr><td class="cap">Attendee engagement</td><td class="srcol"><span class="yes"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Live agenda, push notifications, polls and surveys</span></td><td><span class="no"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Email-only updates with no live interaction</span></td></tr>
+          <tr><td class="cap">Analytics &amp; reporting</td><td class="srcol"><span class="yes"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Real-time dashboard with live attendance and session insights</span></td><td><span class="no"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Manual reporting compiled after the event</span></td></tr>
+          <tr><td class="cap">Mobile experience</td><td class="srcol"><span class="yes"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Dedicated iOS and Android apps for attendees and organizers</span></td><td><span class="no"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>No app; desktop-only or paper-based workflows</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ faq ============ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="sechead center rv">
+      <span class="kick">FAQ</span>
+      <h2 class="sec">Frequently asked <em>questions.</em></h2>
+      <p class="lead">Answers to the most common questions about the SwiftRise event management platform.</p>
+    </div>
+    <div class="faq-in">
+      <div class="qa rv"><button class="qa-q" aria-expanded="false">What is SwiftRise?<span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="qa-a"><p>SwiftRise is an all-in-one event management platform built for organizers. It brings event planning, booth layouts, registration, ticketing, on-site check-in, live agendas, and attendee networking into a single dashboard. Created by Verto Technologies in Riyadh, SwiftRise helps teams run conferences, exhibitions, and corporate events from one connected system.</p></div></div>
+      <div class="qa rv"><button class="qa-q" aria-expanded="false">How does SwiftRise work?<span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="qa-a"><p>SwiftRise works in four steps: set up your event details and branding, manage exhibitors and attendees with invitations and RSVPs, design booth layouts on an interactive floor plan, then open registration and ticketing. On event day, attendees check in via QR codes while organizers track live attendance from a real-time dashboard.</p></div></div>
+      <div class="qa rv"><button class="qa-q" aria-expanded="false">Who is SwiftRise for?<span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="qa-a"><p>SwiftRise is designed for event organizers, exhibition managers, conference planners, and corporate teams who coordinate registration, exhibitors, and attendees at scale. It suits trade shows, conferences, gala dinners, and internal company events, and is trusted by organizations across Saudi Arabia, including ZATCA, Hewar Group, and SAMI.</p></div></div>
+      <div class="qa rv"><button class="qa-q" aria-expanded="false">What features does SwiftRise offer?<span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="qa-a"><p>SwiftRise offers a real-time analytics dashboard, customizable landing pages, registration and ticketing, QR-based on-site check-in, interactive booth layouts, live streaming, polls and surveys, and multi-platform mobile apps. It also supports multilingual Arabic and English content and Saudi-based data hosting for cybersecurity compliance.</p></div></div>
+      <div class="qa rv"><button class="qa-q" aria-expanded="false">Does SwiftRise support on-site check-in and badge printing?<span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="qa-a"><p>Yes. SwiftRise supports fast QR code-based check-in across multiple entry gates, with real-time attendance tracking and professional on-site badge printing. At the ZATCA Conference 2024, SwiftRise achieved an average check-in time under 10 seconds and 100% registration accuracy across four gates.</p></div></div>
+      <div class="qa rv"><button class="qa-q" aria-expanded="false">Is SwiftRise available on mobile?<span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="qa-a"><p>Yes. SwiftRise includes multi-platform mobile applications for iOS and Android, letting attendees register, view interactive agendas, receive notifications, and check in by scanning their QR codes from their phones. Organizers can also monitor live event data on the go from the SwiftRise dashboard.</p></div></div>
+      <div class="qa rv"><button class="qa-q" aria-expanded="false">How do I get started or request a demo?<span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="qa-a"><p>To get started with SwiftRise, contact the team at info@swiftrise.app or call +966 56 722 0298 to request a demo. You can also submit an inquiry through the contact form below, and a SwiftRise specialist will follow up to tailor the platform to your event.</p></div></div>
+      <p class="faq-more">Still have questions? <a href="#contact" data-go="contact">Talk to our team →</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ contact ============ -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="sechead center rv">
+      <span class="kick">Contact</span>
+      <h2 class="sec">Let's create something <em>great together.</em></h2>
+      <p class="lead">Fill in the form and we'll get in touch shortly — or reach us directly.</p>
+    </div>
+    <div class="c-grid">
+      <div class="c-info rv">
+        <h3>Talk to our team</h3>
+        <p class="sub">A SwiftRise specialist will walk you through the platform and tailor it to your event.</p>
+        <div class="c-rows">
+          <a class="c-row" href="tel:+966567220298"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span><b>Phone</b><span>+966 56 722 0298</span></span></a>
+          <a class="c-row" href="mailto:info@swiftrise.app"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></span><span><b>Email</b><span>info@swiftrise.app</span></span></a>
+          <a class="c-row" href="https://wa.me/966567220298" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.3 1.27.49 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35zM12.04 21.5a9.4 9.4 0 0 1-4.8-1.32l-.35-.2-3.57.93.95-3.48-.22-.36a9.42 9.42 0 1 1 8 4.43zM12.05 1a11 11 0 0 0-9.53 16.5L1 23l5.63-1.48A11 11 0 1 0 12.05 1z"/></svg></span><span><b>WhatsApp</b><span>Fastest way to reach us</span></span></a>
+          <div class="c-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span><b>Office</b><span>Salah Ad Din Al Ayyubi Rd, King Abdulaziz, Unit No 69, Riyadh, KSA</span></span></div>
+        </div>
+        <div class="c-soc">
+          <a href="https://www.linkedin.com/company/verto-technologies-sa/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+          <a href="https://www.instagram.com/vertotechnologies/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.8" cy="6.2" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+        </div>
+      </div>
+      <form class="c-form rv" style="--d:.1s" id="demoForm" novalidate>
+        <h3>Book your demo</h3>
+        <p class="sub">Tell us a little about your event — we'll get back to you within one business day.</p>
+        <div class="frow">
+          <label class="fld"><span>Full name</span><input type="text" name="name" placeholder="Your name" required/></label>
+          <label class="fld"><span>Email</span><input type="email" name="email" placeholder="you@company.com" required/></label>
+        </div>
+        <label class="fld"><span>Phone</span><input type="tel" name="phone" placeholder="+966 5x xxx xxxx"/></label>
+        <label class="fld"><span>Your message</span><textarea name="message" placeholder="Tell us about your event — type, dates, expected attendees…"></textarea></label>
+        <button class="btn" type="submit">Send message <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+        <p class="wa-fast">or <a href="https://wa.me/966567220298?text=Hi%20SwiftRise%20—%20I'd%20like%20to%20book%20a%20demo." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.3 1.27.49 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35zM12.04 21.5a9.4 9.4 0 0 1-4.8-1.32l-.35-.2-3.57.93.95-3.48-.22-.36a9.42 9.42 0 1 1 8 4.43zM12.05 1a11 11 0 0 0-9.53 16.5L1 23l5.63-1.48A11 11 0 1 0 12.05 1z"/></svg>book faster on WhatsApp</a></p>
+        <p class="form-note">Sending opens your email app with the message pre-filled — nothing is submitted to a server.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ cta band ============ -->
+<div class="ctaband">
+  <div class="wrap">
+    <div class="cta-in rv">
+      <div>
+        <h2>Want to schedule a<br/>demo conference?</h2>
+        <p>Choose a slot and we'll walk you through SwiftRise, live.</p>
+      </div>
+      <a class="btn ondark" href="#contact" data-go="contact">Book now <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ footer ============ -->
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-brand">
+        <span class="logo"><svg class="lgimg" viewBox="0 0 186 59" role="img" aria-label="SwiftRise"><use href="#srlogo"/></svg></span>
+        <p>Born from a passion for events. The all-in-one event management platform by Verto Technologies, Riyadh.</p>
+        <span class="f-award"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21 1.18.54 2.03 2.03 2.03 3.79M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>Gold — Global Eventex Awards</span>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <div class="f-links">
+          <a href="#features" data-go="features">Platform</a>
+          <a href="#how" data-go="how">How it works</a>
+          <a href="#award" data-go="award">Award</a>
+          <a href="#stories" data-go="stories">Success stories</a>
+          <a href="#faq" data-go="faq">FAQ</a>
+        </div>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <div class="f-links">
+          <a href="tel:+966567220298">+966 56 722 0298</a>
+          <a href="mailto:info@swiftrise.app">info@swiftrise.app</a>
+          <a href="https://wa.me/966567220298" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://maps.google.com/?q=Salah+Ad+Din+Al+Ayyubi+Rd,+Riyadh" target="_blank" rel="noopener">Salah Ad Din Al Ayyubi Rd, Riyadh, KSA</a>
+        </div>
+      </div>
+    </div>
+    <div class="f-bot">
+      <span>© 2026 SwiftRise · Verto Technologies. All rights reserved.</span>
+      <span class="sp">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="https://vertotechnologies.com/" target="_blank" rel="noopener">Verto Technologies</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- floating book-a-demo -->
+<a class="fab" id="fab" href="#contact" data-go="contact"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><span><small>Free demo</small>Book a demo</span></a>
+
+<script>
+(function(){
+"use strict";
+var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- nav: scrolled state ---------- */
+var nav = document.getElementById("nav");
+function onScroll(){ nav.classList.toggle("scrolled", window.scrollY > 8); }
+window.addEventListener("scroll", onScroll, {passive:true});
+onScroll();
+
+/* ---------- in-page navigation (sandbox-safe) ---------- */
+var mnav = document.getElementById("mnav");
+function closeMenu(){ mnav.classList.remove("open"); mnav.setAttribute("aria-hidden","true"); document.getElementById("burger").setAttribute("aria-expanded","false"); }
+document.querySelectorAll("[data-go]").forEach(function(a){
+  a.addEventListener("click", function(e){
+    var id = a.getAttribute("data-go");
+    var el = document.getElementById(id);
+    if(!el) return;
+    e.preventDefault();
+    closeMenu();
+    el.scrollIntoView({behavior: reduced ? "auto" : "smooth", block:"start"});
+    try{ history.replaceState(null,"","#"+id); }catch(_){}
+  });
+});
+
+/* ---------- burger ---------- */
+var burger = document.getElementById("burger");
+burger.addEventListener("click", function(){
+  var open = mnav.classList.toggle("open");
+  mnav.setAttribute("aria-hidden", open ? "false" : "true");
+  burger.setAttribute("aria-expanded", open ? "true" : "false");
+});
+document.getElementById("mclose").addEventListener("click", closeMenu);
+mnav.addEventListener("click", function(e){ if(e.target === mnav) closeMenu(); });
+document.addEventListener("keydown", function(e){ if(e.key === "Escape") closeMenu(); });
+
+/* ---------- scrollspy ---------- */
+var spyIds = ["features","how","award","stories","faq","contact"];
+var navLinks = document.querySelectorAll(".nav-links a");
+function setOn(id){
+  navLinks.forEach(function(a){ a.classList.toggle("on", a.getAttribute("data-go") === id); });
+}
+var spy = new IntersectionObserver(function(entries){
+  entries.forEach(function(en){ if(en.isIntersecting) setOn(en.target.id); });
+}, {rootMargin:"-38% 0px -55% 0px"});
+spyIds.forEach(function(id){ var el = document.getElementById(id); if(el) spy.observe(el); });
+
+/* ---------- reveal on scroll ---------- */
+var rvs = document.querySelectorAll(".rv");
+if(reduced){ rvs.forEach(function(el){ el.classList.add("in"); }); }
+else{
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); }
+    });
+  }, {threshold:.12, rootMargin:"0px 0px -6% 0px"});
+  rvs.forEach(function(el){ io.observe(el); });
+}
+
+/* ---------- count-up ---------- */
+function countUp(el){
+  var target = parseFloat(el.getAttribute("data-count"));
+  if(reduced){ el.textContent = target; return; }
+  var t0 = null, dur = 1400;
+  function tick(t){
+    if(!t0) t0 = t;
+    var p = Math.min((t - t0)/dur, 1);
+    var eased = 1 - Math.pow(1-p, 3);
+    el.textContent = Math.round(target * eased);
+    if(p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+var cio = new IntersectionObserver(function(entries){
+  entries.forEach(function(en){
+    if(en.isIntersecting){ countUp(en.target); cio.unobserve(en.target); }
+  });
+}, {threshold:.6});
+document.querySelectorAll("[data-count]").forEach(function(el){ cio.observe(el); });
+
+/* ---------- hero chip: attendee ticker ---------- */
+var chipCount = document.getElementById("chipCount");
+if(chipCount && !reduced){
+  var base = 4781;
+  setInterval(function(){
+    base += Math.random() < .6 ? 1 : 2;
+    chipCount.textContent = base.toLocaleString("en-US");
+  }, 3200);
+}
+
+/* ---------- judge quote carousel: one rAF clock ---------- */
+var slides = document.querySelectorAll(".qslide");
+var bars = document.querySelectorAll(".qbar i");
+var barBtns = document.querySelectorAll(".qbar");
+var qcount = document.getElementById("qcount");
+var qwrap = document.querySelector(".qwrap");
+var N = slides.length, cur = 0, t0 = null, held = false, DUR = 7000;
+function pad(n){ return (n<10?"0":"") + n; }
+function show(i){
+  cur = (i + N) % N;
+  slides.forEach(function(s,k){ s.classList.toggle("on", k === cur); });
+  qcount.textContent = pad(cur+1) + " / " + pad(N);
+  bars.forEach(function(b,k){ b.style.width = k < cur ? "100%" : "0%"; });
+  t0 = null;
+}
+if(N && !reduced){
+  function clock(t){
+    if(!held && qwrap){
+      if(t0 === null) t0 = t;
+      var p = Math.min((t - t0)/DUR, 1);
+      bars[cur].style.width = (p*100) + "%";
+      if(p >= 1) show(cur + 1);
+    }
+    requestAnimationFrame(clock);
+  }
+  requestAnimationFrame(clock);
+  qwrap.addEventListener("mouseenter", function(){ held = true; });
+  qwrap.addEventListener("mouseleave", function(){ held = false; });
+  var vio = new IntersectionObserver(function(en){ held = held || !en[0].isIntersecting; if(en[0].isIntersecting) held = false; }, {threshold:.2});
+  vio.observe(qwrap);
+}
+document.getElementById("qprev").addEventListener("click", function(){ show(cur-1); });
+document.getElementById("qnext").addEventListener("click", function(){ show(cur+1); });
+barBtns.forEach(function(b,k){ b.addEventListener("click", function(){ show(k); }); });
+
+/* ---------- faq accordion ---------- */
+document.querySelectorAll(".qa").forEach(function(qa){
+  var btn = qa.querySelector(".qa-q"), body = qa.querySelector(".qa-a");
+  btn.addEventListener("click", function(){
+    var open = qa.classList.contains("open");
+    document.querySelectorAll(".qa.open").forEach(function(o){
+      o.classList.remove("open");
+      o.querySelector(".qa-a").style.maxHeight = null;
+      o.querySelector(".qa-q").setAttribute("aria-expanded","false");
+    });
+    if(!open){
+      qa.classList.add("open");
+      body.style.maxHeight = body.scrollHeight + "px";
+      btn.setAttribute("aria-expanded","true");
+    }
+  });
+});
+
+/* ---------- form -> mailto compose ---------- */
+document.getElementById("demoForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  var f = e.target;
+  var name = f.name.value.trim(), email = f.email.value.trim(),
+      phone = f.phone.value.trim(), msg = f.message.value.trim();
+  if(!name || !email){
+    (!name ? f.name : f.email).focus();
+    return;
+  }
+  var body = "Hi SwiftRise team,%0D%0A%0D%0A" + encodeURIComponent(msg || "I'd like to book a demo.") +
+    "%0D%0A%0D%0A—%0D%0A" + encodeURIComponent(name) +
+    (phone ? "%0D%0APhone: " + encodeURIComponent(phone) : "") +
+    "%0D%0AEmail: " + encodeURIComponent(email);
+  window.location.href = "mailto:info@swiftrise.app?subject=" +
+    encodeURIComponent("Demo request — " + name) + "&body=" + body;
+});
+
+/* ---------- floating pill ---------- */
+var fab = document.getElementById("fab");
+var contact = document.getElementById("contact");
+var contactVisible = false;
+var fio = new IntersectionObserver(function(en){ contactVisible = en[0].isIntersecting; place(); }, {threshold:.1});
+fio.observe(contact);
+function place(){
+  fab.classList.toggle("show", window.scrollY > 640 && !contactVisible);
+}
+window.addEventListener("scroll", place, {passive:true});
+place();
+})();
+</script>
+</body>
+</html>
