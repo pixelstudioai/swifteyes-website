@@ -1,0 +1,19 @@
+# SwiftRise
+
+> SwiftRise is an all-in-one event management platform for organizers, built by Verto Technologies in Riyadh, Saudi Arabia. It covers event planning, booth layouts, registration, ticketing, on-site QR check-in, badge printing, live agendas, live streaming, polls and surveys, and attendee networking — with dedicated iOS and Android apps.
+
+Key facts:
+- Winner of Gold at the 15th edition of the Global Eventex Awards, on its very first entry.
+- At the ZATCA Conference 2024, SwiftRise achieved an average check-in time under 10 seconds and 100% registration accuracy across four parallel entry gates.
+- Trusted at events by ZATCA, Hewar Group, and SAMI.
+- Supports Arabic and English content and Saudi-based data hosting for cybersecurity compliance.
+
+Contact:
+- Email: info@swiftrise.app
+- Phone: +966 56 722 0298
+- Address: Salah Ad Din Al Ayyubi Rd, King Abdulaziz, Unit No 69, Riyadh, Saudi Arabia
+- Parent company: Verto Technologies (https://vertotechnologies.com/)
+
+## Pages
+- [Home](https://swiftrise.app/): Platform overview, features, how it works, award and judge quotes, success stories, comparison vs. traditional tools, FAQ, and contact.
+- [Privacy Policy](https://swiftrise.app/privacy-policy)
